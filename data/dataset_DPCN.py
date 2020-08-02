@@ -131,8 +131,7 @@ def DPCNdataloader(batch_size):
     val_num = 2000
     val_upper = train_upper+val_num
 
-    template_list = datacsv["name"].values  
-    print("name ===",template_list)
+    template_list = datacsv["name"].values
     template_list = [i+".jpg" for i in template_list]
     template_list = [os.path.join(path + "/data_train_qsdjt_stereo_sat/ground/",i) for i in template_list ]
     template_train_list = template_list[:train_upper]
