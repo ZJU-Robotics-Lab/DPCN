@@ -54,7 +54,7 @@ We would suggest you to setup the whole environment in Conda or Virtualenv so th
 
 Before you start to train or validate on the simulation dataset, you might want to choose one specific dataset type of the following three: Homogeneous, Heterogeneous, and Dynamic Obstacles. Demonstrations are shown as follows:
 
-![](/home/jessy104/DPCN_ready/images_for_readme/simulation.png)
+![](./images_for_readme/simulation.png)
 
 **By default, the code is running on Heterogeneous dataset** and you can change this by modifying following lines in "./data/simulation.py".
 
