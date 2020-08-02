@@ -202,7 +202,7 @@ def align_image(template, source):
     source = source.cpu().detach().numpy()
     template = template.squeeze(0)  # remove the fake batch dimension
     source = source.squeeze(0)  # remove the fake batch dimension
-    dst = cv2.addWeighted(template, 0.4, source, 0.6, 0)
+    dst = cv2.addWeighted(template, 1, source, 0.6, 0)
     # plt.imshow(dst, cmap="gray")
     # plt.show()  # pause a bit so that plots are updated
     return dst

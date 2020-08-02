@@ -61,9 +61,9 @@ def detect_model(template_path, source_path, model_template, model_source, model
 
 
 
-checkpoint_path = "./checkpoints/laser_sat_qsdjt_9epoch.pt"
-template_path = "./demo/temp_2.jpg"
-source_path = "./demo/src_2.jpg"
+checkpoint_path = "./checkpoints/checkpoint_simulation_hetero.pt"
+template_path = "./demo/temp_1.png"
+source_path = "./demo/src_1.png"
 
 load_pretrained =True
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

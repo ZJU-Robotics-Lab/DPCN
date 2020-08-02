@@ -10,31 +10,31 @@ There are a few dependencies required to run the code.  They are listed below:
 
 ### System Environments:
 
-**Python 3.5+**
+`Python >= 3.5`
 
-**CUDA** **10.1**
+`CUDA 10.1`
 
-**CuDnn**
+`CuDnn`
 
 ### Pip dependencies:
 
-**Pytorch 1.5.0**
+`Pytorch 1.5.0`
 
-**Torchvision 0.6.0**
+`Torchvision 0.6.0`
 
-**Kornia**
+`Kornia`
 
-**Graphviz**
+`Graphviz`
 
-**Opencv**
+`Opencv`
 
-**Scipy**
+`Scipy`
 
-**Matplotlib**
+`Matplotlib`
 
-**Pandas**
+`Pandas`
 
-**TensorboardX**
+`TensorboardX`
 
 
 
@@ -132,4 +132,24 @@ Similarly, there are several options that you can choose when running validation
 
 
 
-## **Finally, HAVE FUN with the CODE!!!!**
+### Detecting and Infering:
+
+This repository also provided a single pair detecting script so that you can see the result of  DPCN directly.  A few demos are given in the "./demo" directory including images pairs from both simulation dataset and Aero-Ground Dataset. You could customize the script `detect.py` to test the chosen images pair with relative pretrained model given, and run this code below:
+
+`python detect.py`
+
+The results should be something like this:
+
+
+
+![](./images_for_readme/Result1.png)
+
+![Result2](./images_for_readme/Result2.png)
+
+
+
+
+
+
+
+## HAVE FUN with the CODE!!!!
