@@ -103,10 +103,10 @@ def detect_translation(template_trans, source_trans, rotation, scale, model_temp
     scale_rot = torch.ones(b).to(device) * (1/scale.to(device))
     rot_mat = kornia.get_rotation_matrix2d(center, angle_rot, scale_rot)
     source_trans = kornia.warp_affine(source_trans.to(device), rot_mat, dsize=(h, w))
-    imshow(template_trans[0,:,:])
-    time.sleep(2)
-    imshow(source_trans[0,:,:])
-    time.sleep(2)
+    # imshow(template_trans[0,:,:])
+    # time.sleep(2)
+    # imshow(source_trans[0,:,:])
+    # time.sleep(2)
 
     # imshow(template,"temp")
     # imshow(source, "src")
@@ -141,8 +141,8 @@ def detect_translation(template_trans, source_trans, rotation, scale, model_temp
     input_c = nn.functional.softmax(corr_y.clone(), dim=-1)
     indices_c = np.linspace(0, 1, 256)
     indices_c = torch.tensor(np.reshape(indices_c, (-1, 256))).to(device)
-    tranformation_y = torch.sum((256 - 1) * input_c * indices_c, dim=-1)
-    # tranformation_y = torch.argmax(corr_y, dim=-1)
+    transformation_y = torch.sum((256 - 1) * input_c * indices_c, dim=-1)
+    # transformation_y = torch.argmax(corr_y, dim=-1)
 
     corr_x = torch.sum(corr_final_trans.clone(), 1, keepdim=False)
     # corr_final_trans = corr_final_trans.reshape(b, h*w)
@@ -150,14 +150,21 @@ def detect_translation(template_trans, source_trans, rotation, scale, model_temp
     input_r = nn.functional.softmax(corr_x.clone(), dim=-1)
     indices_r = np.linspace(0, 1, 256)
     indices_r = torch.tensor(np.reshape(indices_r, (-1, 256))).to(device)
-    # tranformation_x = torch.argmax(corr_x, dim=-1)
-    tranformation_x = torch.sum((256 - 1) * input_r * indices_r, dim=-1)
+    # transformation_x = torch.argmax(corr_x, dim=-1)
+    transformation_x = torch.sum((256 - 1) * input_r * indices_r, dim=-1)
 
-    print("trans x", tranformation_x)
-    print("trans y", tranformation_y)
+    print("trans x", transformation_x)
+    print("trans y", transformation_y)
 
+    trans_mat_affine = torch.Tensor([[[1.0,0.0,transformation_x-128.0],[0.0,1.0,transformation_y-128.0]]]).to(device)
+    template_trans = kornia.warp_affine(template_trans.to(device), trans_mat_affine, dsize=(h, w))
+    image_aligned = align_image(template_trans[0,:,:], source_trans[0,:,:])
+    # imshow(template_trans[0,:,:])
+    # time.sleep(2)
+    # imshow(source_trans[0,:,:])
+    # time.sleep(2)
 
-    return tranformation_y, tranformation_x
+    return transformation_y, transformation_x, image_aligned, source_trans
 
 
 

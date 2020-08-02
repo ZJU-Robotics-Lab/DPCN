@@ -41,10 +41,8 @@ def detect_model(template_path, source_path, model_template, model_source, model
         source, _, _, _, _, _ = default_loader(source_path, 256)
         template = template.to(device)
         source = source.to(device)
-        print("SHAPE before", template.shape)
         template = template.unsqueeze(0)
         template = template.permute(1,0,2,3)
-        print("SHAPE after", template.shape)
         source = source.unsqueeze(0)
         source = source.permute(1,0,2,3)
 
@@ -52,20 +50,20 @@ def detect_model(template_path, source_path, model_template, model_source, model
         since = time.time()
         rotation_cal, scale_cal = detect_rot_scale(template, source,\
                                      model_template, model_source, model_corr2softmax, device )
-        tranformation_y, tranformation_x = detect_translation(template, source, rotation_cal, scale_cal, \
+        tranformation_y, tranformation_x, image_aligned, source_rotated = detect_translation(template, source, rotation_cal, scale_cal, \
                                             model_trans_template, model_trans_source, model_trans_corr2softmax, device)
         time_elapsed = time.time() - since
         # print('in detection time {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
         print("in detection time", time_elapsed)
+        plot_and_save_result(template[0,:,:], source[0,:,:], source_rotated[0,:,:], image_aligned)
 
 
 
 
 
-
-checkpoint_path = "./checkpoints/rot_scale_trans_black_37.pt"
-template_path = "./data/test/template4.jpg"
-source_path = "./data/test/source4_crop.jpg"
+checkpoint_path = "./checkpoints/laser_sat_qsdjt_9epoch.pt"
+template_path = "./demo/temp_2.jpg"
+source_path = "./demo/src_2.jpg"
 
 load_pretrained =True
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

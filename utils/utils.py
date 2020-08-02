@@ -18,6 +18,7 @@ import shutil
 import math
 from PIL import Image
 import kornia
+import cv2
 
 
 def logpolar_filter(shape, device):
@@ -64,14 +65,6 @@ def batch_fftshift2d(x):
         real = roll_n(real, axis=dim, n=n_shift)
         imag = roll_n(imag, axis=dim, n=n_shift)
     return torch.stack((real, imag), -1)  # last dim=2 (real&imag)
-
-def imshow(tensor, title=None):
-    unloader = transforms.ToPILImage()
-    image = tensor.cpu().clone()  # we clone the tensor to not do changes on it
-    image = image.squeeze(0)  # remove the fake batch dimension
-    image = unloader(image)
-    plt.imshow(image)
-    plt.show()
 
 def softargmax(input, device, beta=100):
     *_, h, w = input.shape
@@ -190,24 +183,63 @@ def print_metrics(metrics, epoch_samples, phase):
 
     print("{}: {}".format(phase, ", ".join(outputs)))
 def imshow(tensor, title=None):
-    image = tensor.cpu().clone()  # we clone the tensor to not do changes on it
+    image = tensor.cpu().detach().numpy()  # we clone the tensor to not do changes on it
     image = image.squeeze(0)  # remove the fake batch dimension
-    # image = transforms.ToPILImage()(image)
-    plt.imshow(image)
+    plt.imshow(image, cmap="gray")
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
-
 def heatmap_imshow(tensor, title=None):
     image = tensor.cpu().detach().numpy()  # we clone the tensor to not do changes on it
-    # image = image.squeeze(0)  # remove the fake batch dimension
-    # image = transforms.ToPILImage()(image)
     image = gaussian_filter(image, sigma = 5, mode = 'nearest')
     plt.imshow(image, cmap="jet", interpolation="hamming")
     plt.colorbar()
     if title is not None:
         plt.title(title)
     plt.pause(0.001)  # pause a bit so that plots are updated
+def align_image(template, source):
+    template = template.cpu().detach().numpy()
+    source = source.cpu().detach().numpy()
+    template = template.squeeze(0)  # remove the fake batch dimension
+    source = source.squeeze(0)  # remove the fake batch dimension
+    dst = cv2.addWeighted(template, 0.4, source, 0.6, 0)
+    # plt.imshow(dst, cmap="gray")
+    # plt.show()  # pause a bit so that plots are updated
+    return dst
+
+def plot_and_save_result(template, source, rotated, dst):
+    template = template.cpu().detach().numpy()
+    source = source.cpu().detach().numpy()
+    template = template.squeeze(0)  # remove the fake batch dimension
+    source = source.squeeze(0)  # remove the fake batch dimension
+    rotated = rotated.cpu().detach().numpy()
+    rotated = rotated.squeeze(0)
+
+
+    result = plt.figure()
+    result_t = result.add_subplot(1,4,1)
+    result_t.set_title("Template")
+    result_t.imshow(template, cmap="gray").axes.get_xaxis().set_visible(False)
+    result_t.imshow(template, cmap="gray").axes.get_yaxis().set_visible(False)
+
+    result_s = result.add_subplot(1,4,2)
+    result_s.set_title("Source")
+    result_s.imshow(source, cmap="gray").axes.get_xaxis().set_visible(False)
+    result_s.imshow(source, cmap="gray").axes.get_yaxis().set_visible(False)
+
+    result_r = result.add_subplot(1,4,3)
+    result_r.set_title("Rotated Source")
+    result_r.imshow(rotated, cmap="gray").axes.get_xaxis().set_visible(False)
+    result_r.imshow(rotated, cmap="gray").axes.get_yaxis().set_visible(False)
+
+    result_d = result.add_subplot(1,4,4)
+    result_d.set_title("Destination")
+    result_d.imshow(dst, cmap="gray").axes.get_xaxis().set_visible(False)
+    result_d.imshow(dst, cmap="gray").axes.get_yaxis().set_visible(False)
+    plt.savefig("Result.png")
+    plt.show()
+   
+
 
 def save_checkpoint(state, is_best, checkpoint_dir):
     file_path = checkpoint_dir + 'checkpoint.pt'
