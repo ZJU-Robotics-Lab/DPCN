@@ -1,0 +1,8 @@
+*.jpg
+*.pth
+*.zip
+*.pt
+*.mav-lab
+*.png
+*.DS_Store
+*.pyc
