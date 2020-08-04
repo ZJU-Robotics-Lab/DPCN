@@ -48,6 +48,14 @@ We would suggest you to setup the whole environment in Conda or Virtualenv so th
 
 
 
+### Pre-trained Models:
+
+***Pre-trained Models can be downloaded from this link:</u>***   https://drive.google.com/file/d/1GZ8hz3cfaBP7F7KEdQK7M_WcwOM1GF6z/view?usp=sharing
+
+
+
+
+
 ## How to Run The Code
 
 ### Step 0
@@ -118,6 +126,10 @@ For **Dynamic** Obstacle sets:
 
 
 
+***<u>Again, Pre-trained Models can be downloaded from this link:</u>***   https://drive.google.com/file/d/1GZ8hz3cfaBP7F7KEdQK7M_WcwOM1GF6z/view?usp=sharing
+
+
+
 Similarly, there are several options that you can choose when running validation, shown as follows:
 
 | Arguments         | What it will trigger                                         | Default                     |
@@ -134,7 +146,7 @@ Similarly, there are several options that you can choose when running validation
 
 ### Detecting and Infering:
 
-This repository also provided a single pair detecting script so that you can see the result of  DPCN directly.  A few demos are given in the "./demo" directory including images pairs from both simulation dataset and Aero-Ground Dataset. You could customize the script `detect.py` to test the chosen images pair with relative pretrained model given, and run this code below:
+This repository also provided a single pair detecting script so that you can see the result of  DPCN directly.  A few demos are given in the "./demo" directory including images pairs from both simulation dataset and Aero-Ground Dataset. You could customize the script `detect.py` to test the chosen images pair with relative pre-trained model given, and run this code below:
 
 `python detect.py`
 
