@@ -1,6 +1,6 @@
 # DPCN: Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching
 
-This is the official repository for DPCN, with paper "Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching" accpepted in CoRL2020.
+This is the official repository for DPCN, with paper "[Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching](https://arxiv.org/abs/2008.09474)" accpepted in CoRL2020.
 
 
 
