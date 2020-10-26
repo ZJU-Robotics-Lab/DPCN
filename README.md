@@ -1,6 +1,6 @@
 # DPCN: Deep Phase Correlation Network for Template Matching
 
-This is the official repository for DPCN. The currently released code is for reviewers of CoRL to reproduce the experimental results on *SIMULATION DATASET*.
+This is the official repository for DPCN, with paper "Deep Phase Correlation Network for Template Matching" accpepted in CoRL2020.
 
 
 
