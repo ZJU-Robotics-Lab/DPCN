@@ -1,6 +1,6 @@
-# DPCN: Deep Phase Correlation Network for Template Matching
+# DPCN: Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching
 
-This is the official repository for DPCN, with paper "Deep Phase Correlation Network for Template Matching" accpepted in CoRL2020.
+This is the official repository for DPCN, with paper "Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching" accpepted in CoRL2020.
 
 
 
