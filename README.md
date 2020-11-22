@@ -22,7 +22,7 @@ There are a few dependencies required to run the code.  They are listed below:
 
 `Torchvision 0.6.0`
 
-`Kornia`
+`Kornia 0.3.1`
 
 `Graphviz`
 
