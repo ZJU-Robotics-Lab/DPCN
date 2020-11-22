@@ -46,6 +46,8 @@ or manually install these dependencies if it makes you feel more comfortable and
 
 We would suggest you to setup the whole environment in Conda or Virtualenv so that your original system will not be affected.
 
+Also, we are now working on the upgrade process to be competible with the lastes version of packages (e.g. torch==1.7.1, cuda11, and kornia0.4.1), coming soon!
+
 
 
 ### Pre-trained Models:
