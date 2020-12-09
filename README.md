@@ -1,3 +1,6 @@
+[![arXiv](https://img.shields.io/badge/arxiv-2008.09474-B31B1B.svg)](https://arxiv.org/abs/2008.09474)
+[![video](https://img.shields.io/badge/Video-DPCN-ff69b4.svg)](https://www.youtube.com/watch?v=K7cBViQ9Vds&t=11s)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # DPCN: Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching
 
 This is the official repository for DPCN, with paper "[Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching](https://arxiv.org/abs/2008.09474)" accpepted and presented in CoRL2020.
@@ -160,7 +163,16 @@ The results should be something like this:
 
 ![Result2](./images_for_readme/Result2.png)
 
-
+### Citation
+If you tried our source code in your project, please cite the following:
+```bibtex
+@article{chen2020deep,
+  title={Deep phase correlation for end-to-end heterogeneous sensor measurements matching},
+  author={Chen, Zexi and Xu, Xuecheng and Wang, Yue and Xiong, Rong},
+  journal={arXiv preprint arXiv:2008.09474},
+  year={2020}
+}
+```
 
 
 
