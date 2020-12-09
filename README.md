@@ -1,5 +1,5 @@
 [![arXiv](https://img.shields.io/badge/arxiv-2008.09474-B31B1B.svg)](https://arxiv.org/abs/2008.09474)
-[![video](https://img.shields.io/badge/Video-DPCN-ff69b4.svg)](https://www.youtube.com/watch?v=K7cBViQ9Vds&t=11s)
+[![video](https://img.shields.io/badge/Video-DPCN-ff69b4.svg)](https://www.youtube.com/watch?v=_xPoHFf_8yI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # DPCN: Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching
 
