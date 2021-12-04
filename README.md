@@ -164,13 +164,20 @@ The results should be something like this:
 ![Result2](./images_for_readme/Result2.png)
 
 ### Citation
-If you tried our source code in your project, please cite the following:
+If our source code could help you in your project, please cite the following:
 ```bibtex
-@article{chen2020deep,
-  title={Deep phase correlation for end-to-end heterogeneous sensor measurements matching},
-  author={Chen, Zexi and Xu, Xuecheng and Wang, Yue and Xiong, Rong},
-  journal={arXiv preprint arXiv:2008.09474},
-  year={2020}
+@InProceedings{chen2020deep,
+  title = 	 {Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching},
+  author =       {Chen, Zexi and Xu, Xuecheng and Wang, Yue and Xiong, Rong},
+  booktitle = 	 {Proceedings of the 2020 Conference on Robot Learning},
+  pages = 	 {2359--2375},
+  year = 	 {2021},
+  volume = 	 {155},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {16--18 Nov},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v155/chen21g/chen21g.pdf},
+  url = 	 {https://proceedings.mlr.press/v155/chen21g.html},
 }
 ```
 
