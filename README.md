@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # DPCN: Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching
 
-This is the official repository for DPCN, with paper "[Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching](https://arxiv.org/abs/2008.09474)" accpepted and presented in CoRL2020.
+This is the official repository for DPCN, with paper "[Deep Phase Correlation for End-to-End Heterogeneous Sensor Measurements Matching](https://proceedings.mlr.press/v155/chen21g.html)" accpepted and presented in CoRL2020.
 
 
 
